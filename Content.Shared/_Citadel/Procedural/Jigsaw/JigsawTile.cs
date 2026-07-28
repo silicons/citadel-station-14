@@ -5,6 +5,8 @@ namespace Content.Shared._Citadel.Procedural.Jigsaw;
 /// join to other tiles.
 /// </summary>
 public struct JigsawTile<TTileData, TEdgeData>
+    where TTileData : struct
+    where TEdgeData : struct
 {
     public TTileData Data;
 

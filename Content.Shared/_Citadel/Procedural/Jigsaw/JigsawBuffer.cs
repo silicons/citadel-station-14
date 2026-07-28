@@ -3,19 +3,20 @@ namespace Content.Shared._Citadel.Procedural.Jigsaw;
 /// <summary>
 ///
 /// </summary>
+/// <typeparam name="TPieceData">
+/// Data stored on placed pieces.
+/// </typeparam>
 /// <typeparam name="TTileData">
 /// Data stored on tiles.
 /// </typeparam>
-/// <typeparam name="TPlacedData">
-/// Data stored on placed pieces.
-/// </typeparam>
-public sealed class JigsawBuffer<TTileData, TPlacedData>
+/// <typeparam name="TEdgeData">Data stored on tile edges</typeparam>
+public sealed class JigsawBuffer<TPieceData, TTileData, TEdgeData>
 {
-    private ulong Width { get; }
-    private ulong Height { get; }
+    private int Width { get; }
+    private int Height { get; }
 
-    private List<JigsawBufferPlaced<TPlacedData>> placed;
-    private List<JigsawBufferTile<TTileData, TPlacedData>?> tiles;
+    private List<JigsawBufferPlaced<TPieceData>> placed;
+    private List<JigsawBufferTile<TPieceData, TTileData>?> tiles;
 
     /// <summary>
     ///
@@ -25,15 +26,15 @@ public sealed class JigsawBuffer<TTileData, TPlacedData>
     /// <typeparam name="TTileData">
     /// Data stored on tiles.
     /// </typeparam>
-    /// <typeparam name="TPlacedData">
+    /// <typeparam name="TPieceData">
     /// Data stored on placed.
     /// </typeparam>
-    public JigsawBuffer(ulong width, ulong height)
+    public JigsawBuffer(int width, int height)
     {
         Width = width;
         Height = height;
-        placed = new List<JigsawBufferPlaced<TPlacedData>>();
-        tiles = new List<JigsawBufferTile<TTileData, TPlacedData>?>();
+        placed = new List<JigsawBufferPlaced<TPieceData>>();
+        tiles = new List<JigsawBufferTile<TTileData, TPieceData>?>();
     }
 }
 

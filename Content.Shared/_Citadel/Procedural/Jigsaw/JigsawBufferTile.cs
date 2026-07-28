@@ -1,13 +1,19 @@
 namespace Content.Shared._Citadel.Procedural.Jigsaw;
 
-public sealed class JigsawBufferTile<TTileData, TPieceData>
+public sealed class JigsawBufferTile<TPieceData, TTileData, TEdgeData>
+    where TPieceData : struct
+    where TTileData : struct
+    where TEdgeData : struct
 {
-    public JigsawBufferTile(JigsawTile<TTileData> tile, JigsawBufferPlaced<TPieceData>? placed)
+    public JigsawBufferTile(
+        JigsawTile<TTileData, TEdgeData> tile,
+        JigsawBufferPlaced<TPieceData, TTileData, TEdgeData>? placed
+        )
     {
-        this.tile = tile;
-        this.placed = placed;
+        this.Tile = tile;
+        this.Placed = placed;
     }
 
-    private JigsawTile<TTileData> tile;
-    private JigsawBufferPlaced<TPieceData>? placed;
+    public JigsawTile<TTileData, TEdgeData> Tile { get; }
+    public JigsawBufferPlaced<TPieceData, TTileData, TEdgeData>? Placed { get; }
 }

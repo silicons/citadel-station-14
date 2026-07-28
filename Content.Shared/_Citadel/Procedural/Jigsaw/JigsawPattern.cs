@@ -1,9 +1,47 @@
 namespace Content.Shared._Citadel.Procedural.Jigsaw;
 
 public sealed class JigsawPattern<TTileData, TEdgeData>
+    where TTileData : struct
+    where TEdgeData : struct
 {
-    public ulong Width { get; }
-    public ulong Height { get; }
+    public int Width { get; }
+    public int Height { get; }
 
-    List<>
+    public JigsawPattern(int width, int height)
+    {
+        Width = width;
+        Height = height;
+
+        tiles = new List<JigsawTile<TTileData, TEdgeData>?>();
+        for (var i = 0; i < width * height; i++)
+        {
+            tiles.Add(null);
+        }
+    }
+
+    public bool PlaceTile(JigsawTile<TTileData, TEdgeData> tile,
+        int x,
+        int y,
+        out JigsawTile<TTileData, TEdgeData>? replaced)
+    {
+    #warning impl
+    }
+
+    JigsawTile<TTileData, TEdgeData>? GetTile(int x, int y)
+    {
+    #warning impl
+    }
+
+    private int indexOf(int x, int y)
+    {
+        #warning impl
+    }
+
+    private bool inBounds(int x, int y)
+    {
+        int index =  indexOf(x, y);
+        return index >= 0 && index < tiles.Count;
+    }
+
+    private List<JigsawTile<TTileData, TEdgeData>?> tiles;
 }

@@ -1,6 +1,13 @@
+using System.Collections.Immutable;
+
 namespace Content.Shared._Citadel.Procedural.Jigsaw;
 
-public sealed class JigsawBufferPlaced<TData>(TData data)
+public sealed class JigsawBufferPlaced<TPieceData, TTileData, TEdgeData>
+    where TPieceData : struct
+    where TTileData : struct
+    where TEdgeData : struct
 {
-    public TData Data { get; } = data;
+    #warning impl
+
+    public ImmutableList<JigsawBufferTile<TPieceData, TTileData, TEdgeData>> Tiles { get; }
 }
