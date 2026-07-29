@@ -4,8 +4,7 @@ public sealed class JigsawPattern<TTileData, TEdgeData>
     where TTileData : struct
     where TEdgeData : struct
 {
-    public int Width { get; }
-    public int Height { get; }
+    private readonly List<JigsawTile<TTileData, TEdgeData>?> tiles;
 
     public JigsawPattern(int width, int height)
     {
@@ -19,29 +18,30 @@ public sealed class JigsawPattern<TTileData, TEdgeData>
         }
     }
 
+    public int Width { get; }
+    public int Height { get; }
+
     public bool PlaceTile(JigsawTile<TTileData, TEdgeData> tile,
         int x,
         int y,
         out JigsawTile<TTileData, TEdgeData>? replaced)
     {
-    #warning impl
+#warning impl
     }
 
-    JigsawTile<TTileData, TEdgeData>? GetTile(int x, int y)
+    private JigsawTile<TTileData, TEdgeData>? GetTile(int x, int y)
     {
-    #warning impl
+#warning impl
     }
 
     private int indexOf(int x, int y)
     {
-        #warning impl
+#warning impl
     }
 
     private bool inBounds(int x, int y)
     {
-        int index =  indexOf(x, y);
+        var index = indexOf(x, y);
         return index >= 0 && index < tiles.Count;
     }
-
-    private List<JigsawTile<TTileData, TEdgeData>?> tiles;
 }

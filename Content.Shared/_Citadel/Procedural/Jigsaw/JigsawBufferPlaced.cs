@@ -7,7 +7,7 @@ public sealed class JigsawBufferPlaced<TPieceData, TTileData, TEdgeData>
     where TTileData : struct
     where TEdgeData : struct
 {
-    #warning impl
-
+    private JigsawPiece<TPieceData, TTileData, TEdgeData> Piece { get; }
     public ImmutableList<JigsawBufferTile<TPieceData, TTileData, TEdgeData>> Tiles { get; }
+    public JigsawDirection Direction { get; }
 }
