@@ -1,4 +1,4 @@
-namespace Content.Shared._Citadel.Procedural.Jigsaw;
+namespace Content.Shared._Citadel.DSA.Jigsaw2D;
 
 /// <summary>
 /// Direction for jigsaw pieces to be placed.
@@ -6,7 +6,7 @@ namespace Content.Shared._Citadel.Procedural.Jigsaw;
 /// Rotation is done logically clockwise; 'EAST' is a 90 deg CW, 'WEST' is a 270 deg CW.
 /// </summary>
 [Flags]
-public enum JigsawDirection
+public enum Orientation
 {
     North = 1 << 0,
     East = 1 << 2,

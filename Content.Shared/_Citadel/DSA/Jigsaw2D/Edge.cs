@@ -1,6 +1,6 @@
-namespace Content.Shared._Citadel.Procedural.Jigsaw;
+namespace Content.Shared._Citadel.DSA.Jigsaw2D;
 
-public struct JigsawEdge<TEdgeData>()
+public struct Edge<TEdgeData>()
     where TEdgeData : struct
 {
     public TEdgeData Data = default;

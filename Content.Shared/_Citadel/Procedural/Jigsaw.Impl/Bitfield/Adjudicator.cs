@@ -1,3 +1,5 @@
+using Content.Shared._Citadel.DSA.Jigsaw2D;
+
 namespace Content.Shared._Citadel.Procedural.Jigsaw.Impl.Bitfield;
 
 public sealed class Adjudicator<TPieceData, TTileData> : IJigsawAdjudicator<
@@ -5,17 +7,17 @@ public sealed class Adjudicator<TPieceData, TTileData> : IJigsawAdjudicator<
     where TPieceData : struct
     where TTileData : struct
 {
-    public bool CanEdgeJoin(JigsawEdge<Edge> alpha, JigsawEdge<Edge> beta)
+    public bool CanEdgeJoin(Edge<Edge> alpha, Edge<Edge> beta)
     {
         return DoEdgesMatch(alpha, beta);
     }
 
-    public bool CanEdgeTouch(JigsawEdge<Edge> alpha, JigsawEdge<Edge> beta)
+    public bool CanEdgeTouch(Edge<Edge> alpha, Edge<Edge> beta)
     {
         return DoEdgesMatch(alpha, beta);
     }
 
-    private bool DoEdgesMatch(JigsawEdge<Edge> alpha, JigsawEdge<Edge> beta)
+    private bool DoEdgesMatch(Edge<Edge> alpha, Edge<Edge> beta)
     {
         // relatively dumb algorithm;
         // we only check for require/forbid edges.

@@ -1,3 +1,5 @@
+using Content.Shared._Citadel.DSA.Jigsaw2D;
+
 namespace Content.Shared._Citadel.Procedural.Jigsaw;
 
 /// <summary>
@@ -17,8 +19,8 @@ public interface IJigsawSolver<TSolverParams, TPieceData, TTileData, TEdgeData>
     /// <param name="piece"></param>
     /// <param name="solverParams"></param>
     /// <returns></returns>
-    JigsawBufferPlaced<TPieceData, TTileData, TEdgeData> PlaceStandalonePiece(
-        JigsawBuffer<TPieceData, TTileData, TEdgeData> buffer,
-        JigsawPiece<TPieceData, TTileData, TEdgeData> piece,
+    BufferPlacement<TPieceData, TTileData, TEdgeData> PlaceStandalonePiece(
+        Buffer<TPieceData, TTileData, TEdgeData> buffer,
+        Piece<TPieceData, TTileData, TEdgeData> piece,
         TSolverParams solverParams);
 }

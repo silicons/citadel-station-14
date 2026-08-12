@@ -1,3 +1,5 @@
+using Content.Shared._Citadel.DSA.Jigsaw2D;
+
 namespace Content.Shared._Citadel.Procedural.Jigsaw;
 
 /// <summary>
@@ -21,7 +23,7 @@ public interface IJigsawAdjudicator<TPieceData, TTileData, TEdgeData>
     /// <param name="alpha"></param>
     /// <param name="beta"></param>
     /// <returns></returns>
-    bool CanEdgeJoin(JigsawEdge<TEdgeData> alpha, JigsawEdge<TEdgeData> beta);
+    bool CanEdgeJoin(Edge<TEdgeData> alpha, Edge<TEdgeData> beta);
 
     /// <summary>
     /// Check if two jigsaw edges may touch at all.
@@ -29,5 +31,5 @@ public interface IJigsawAdjudicator<TPieceData, TTileData, TEdgeData>
     /// <param name="alpha"></param>
     /// <param name="beta"></param>
     /// <returns></returns>
-    bool CanEdgeTouch(JigsawEdge<TEdgeData> alpha, JigsawEdge<TEdgeData> beta);
+    bool CanEdgeTouch(Edge<TEdgeData> alpha, Edge<TEdgeData> beta);
 }

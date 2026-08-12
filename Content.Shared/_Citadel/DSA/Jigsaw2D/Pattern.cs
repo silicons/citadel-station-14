@@ -1,4 +1,4 @@
-namespace Content.Shared._Citadel.Procedural.Jigsaw;
+namespace Content.Shared._Citadel.DSA.Jigsaw2D;
 
 /// <summary>
 /// A holder pattern for tiles in a jigsaw piece.
@@ -7,14 +7,14 @@ namespace Content.Shared._Citadel.Procedural.Jigsaw;
 /// </summary>
 /// <typeparam name="TTileData"></typeparam>
 /// <typeparam name="TEdgeData"></typeparam>
-public sealed class JigsawPattern<TTileData, TEdgeData> : ICloneable
+public sealed class Pattern<TTileData, TEdgeData> : ICloneable
     where TTileData : struct
     where TEdgeData : struct
 {
     /// <summary>
     /// A null-ref that may be returned.
     /// </summary>
-    private static JigsawTile<TTileData, TEdgeData>? _null;
+    private static Tile<TTileData, TEdgeData>? _nullTile;
 
     /// <summary>
     /// Tiles list. Created and sized at init.
@@ -22,26 +22,26 @@ public sealed class JigsawPattern<TTileData, TEdgeData> : ICloneable
     /// Row-major, index = (y * width) + x.
     /// Indices start from 0.
     /// </summary>
-    private readonly JigsawTile<TTileData, TEdgeData>?[] _tiles;
+    private readonly Tile<TTileData, TEdgeData>?[] _tiles;
 
     /// <summary>
     /// Creates a pattern with a given size.
     /// </summary>
     /// <param name="width"></param>
     /// <param name="height"></param>
-    public JigsawPattern(int width, int height)
+    public Pattern(int width, int height)
     {
         Width = width;
         Height = height;
 
-        _tiles = new JigsawTile<TTileData, TEdgeData>?[width * height];
+        _tiles = new Tile<TTileData, TEdgeData>?[width * height];
     }
 
     /// <summary>
     /// Copy constructor.
     /// </summary>
     /// <param name="clone"></param>
-    private JigsawPattern(JigsawPattern<TTileData, TEdgeData> clone)
+    private Pattern(Pattern<TTileData, TEdgeData> clone)
         : this(clone.Width, clone.Height)
     {
         for (var i = 0; i < clone._tiles.Length; i++)
@@ -55,13 +55,13 @@ public sealed class JigsawPattern<TTileData, TEdgeData> : ICloneable
 
     public object Clone()
     {
-        return new JigsawPattern<TTileData, TEdgeData>(this);
+        return new Pattern<TTileData, TEdgeData>(this);
     }
 
-    public bool PlaceTile(JigsawTile<TTileData, TEdgeData> tile,
+    public bool PlaceTile(Tile<TTileData, TEdgeData> tile,
         int x,
         int y,
-        out JigsawTile<TTileData, TEdgeData>? replaced)
+        out Tile<TTileData, TEdgeData>? replaced)
     {
         if (!InBounds(x, y))
         {
@@ -75,10 +75,10 @@ public sealed class JigsawPattern<TTileData, TEdgeData> : ICloneable
         return true;
     }
 
-    public ref JigsawTile<TTileData, TEdgeData>? GetTile(int x, int y)
+    public ref Tile<TTileData, TEdgeData>? GetTile(int x, int y)
     {
         if (!InBounds(x, y))
-            return ref _null;
+            return ref _nullTile;
         return ref _tiles[IndexOf(x, y)];
     }
 
