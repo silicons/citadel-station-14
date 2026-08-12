@@ -15,13 +15,4 @@ public struct Tile<TTileData, TEdgeData>()
     public Edge<TEdgeData> South;
     public Edge<TEdgeData> West;
 
-    /**
-     * The weight of this tile as a hint to solvers.
-     *
-     * The higher it is, the more prioritized it is to be joined first.
-     *
-     * Tiles that are more picky generally be more weighty, because
-     * otherwise, less picky tiles (and their edges) may get 'first pick' and choke them out.
-     */
-    public int Weight = 0;
 }

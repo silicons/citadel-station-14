@@ -23,16 +23,6 @@ public sealed class Piece<TPieceData, TTileData, TEdgeData>(Pattern<TTileData, T
 
     public TPieceData Data;
 
-    /**
-     * The weight of this piece as a hint to solvers.
-     *
-     * The higher it is, the more prioritized it is to be joined first.
-     *
-     * Pieces that are more picky generally be more weighty, because
-     * otherwise, less picky pieces may get 'first pick' and choke them out.
-     */
-    public int Weight = 0;
-
     public object Clone()
     {
 #warning impl
