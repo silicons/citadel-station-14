@@ -2,6 +2,8 @@ namespace Content.Shared._Citadel.Procedural.Jigsaw;
 
 /// <summary>
 /// Decides whether two tiles can be next to each other.
+/// This is separate from IJigsawSolver so that placement rules and behaviors
+/// may be different from the actual solver strategy.
 /// </summary>
 /// <typeparam name="TTileData"></typeparam>
 /// <typeparam name="TPieceData"></typeparam>
@@ -14,11 +16,12 @@ public interface IJigsawAdjudicator<TPieceData, TTileData, TEdgeData>
     /// <summary>
     /// Checks if two jigsaw edges may join each other naturally.
     /// Join is defined by being directly adjacent to that side.
+    /// Implies CanEdgeTouch.
     /// </summary>
     /// <param name="alpha"></param>
     /// <param name="beta"></param>
     /// <returns></returns>
-    bool CanEdgeJoin(JigsawTileEdge<TEdgeData> alpha, JigsawTileEdge<TEdgeData> beta);
+    bool CanEdgeJoin(JigsawEdge<TEdgeData> alpha, JigsawEdge<TEdgeData> beta);
 
     /// <summary>
     /// Check if two jigsaw edges may touch at all.
@@ -26,5 +29,5 @@ public interface IJigsawAdjudicator<TPieceData, TTileData, TEdgeData>
     /// <param name="alpha"></param>
     /// <param name="beta"></param>
     /// <returns></returns>
-    bool CanEdgeTouch(JigsawTileEdge<TEdgeData> alpha, JigsawTileEdge<TEdgeData> beta);
+    bool CanEdgeTouch(JigsawEdge<TEdgeData> alpha, JigsawEdge<TEdgeData> beta);
 }
